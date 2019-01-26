@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/image/button">
+        <file>image/6.png</file>
+        <file>image/7.png</file>
+        <file>image/8.png</file>
+        <file>image/10.png</file>
+        <file>image/close.png</file>
+        <file>image/left.png</file>
+        <file>image/minus.png</file>
+        <file>image/open.png</file>
+        <file>image/plus.png</file>
+        <file>image/right.png</file>
+        <file>image/rotating_m.png</file>
+        <file>image/rotating_p.png</file>
+        <file>image/rotation_minus.png</file>
+        <file>image/rotation_plus.png</file>
+        <file>image/wait.png</file>
+        <file>qss/darkgray.css</file>
+        <file>qss/black.css</file>
+        <file>image/pause.png</file>
+        <file>image/reset.png</file>
+        <file>image/start.png</file>
+        <file>image/stop.png</file>
+        <file>image/favicon.ico</file>
+        <file>image/connected.png</file>
+        <file>image/disconnected.png</file>
+        <file>image/offline.png</file>
+        <file>image/online.png</file>
+        <file>image/modelv.png</file>
+    </qresource>
+</RCC>
