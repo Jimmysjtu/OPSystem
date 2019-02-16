@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1218</width>
+    <width>1518</width>
     <height>878</height>
    </rect>
   </property>
@@ -58,7 +58,7 @@
           </font>
          </property>
          <property name="text">
-          <string>旋转导管（1，2）</string>
+          <string>自动转管（1，2）</string>
          </property>
         </widget>
        </item>
@@ -195,7 +195,7 @@
           </font>
          </property>
          <property name="text">
-          <string>旋转导丝（3，4）</string>
+          <string>自动转丝（3，4）</string>
          </property>
         </widget>
        </item>
@@ -788,7 +788,7 @@
        <item row="2" column="2">
         <widget class="QLineEdit" name="serverIPLineEdit">
          <property name="text">
-          <string>192.168.180.129</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -845,7 +845,7 @@
        <item row="1" column="2">
         <widget class="QLineEdit" name="userNameLineEdit">
          <property name="text">
-          <string>jim</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -879,7 +879,7 @@
        <item row="1" column="4" colspan="2">
         <widget class="QLineEdit" name="portLineEdit">
          <property name="text">
-          <string>8010</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -1348,7 +1348,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1218</width>
+     <width>1518</width>
      <height>23</height>
     </rect>
    </property>

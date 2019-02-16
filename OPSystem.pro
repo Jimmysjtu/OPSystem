@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += network
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,14 +28,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    status.cpp
+    status.cpp \
+    logindlg.cpp \
+    app.cpp \
+    appinit.cpp \
+    mainmenu.cpp
 
 HEADERS += \
         mainwindow.h \
-    status.h
+    status.h \
+    logindlg.h \
+    app.h \
+    appinit.h \
+    mainmenu.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    logindlg.ui \
+    mainmenu.ui
 
 RESOURCES += \
     resource.qrc

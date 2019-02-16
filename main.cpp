@@ -1,14 +1,17 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include "logindlg.h"
 #include <QFile>
 #include <QDebug>
+#include "app.h"
+#include "appinit.h"
+#include "mainmenu.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
     /*
-
     QFile file(":/image/button/qss/black.css");
     if (file.open(QFile::ReadOnly)) {
         QString qss = QLatin1String(file.readAll());
@@ -20,9 +23,21 @@ int main(int argc, char *argv[])
     else qDebug()<<"*";
     */
 
+    APPINIT *init = new APPINIT;
+    init->Load();
 
-    MainWindow w;
-    w.show();
 
-    return a.exec();
+
+    //MainWindow w;
+    Logindlg dlg;
+    MainMenu m;
+
+    if(dlg.exec()==QDialog::Accepted)
+    {
+        m.show();
+        return a.exec();
+
+    }
+
+   else  return 0;
 }
