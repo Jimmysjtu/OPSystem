@@ -28,4 +28,10 @@
         <file>image/online.png</file>
         <file>image/modelv.png</file>
     </qresource>
+    <qresource prefix="/shaders">
+        <file>shaders/robot.frag</file>
+        <file>shaders/robot.vert</file>
+        <file>shaders/wire.frag</file>
+        <file>shaders/wire.vert</file>
+    </qresource>
 </RCC>

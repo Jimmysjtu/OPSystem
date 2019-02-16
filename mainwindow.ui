@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1218</width>
-    <height>878</height>
+    <width>1623</width>
+    <height>911</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1329,7 +1329,7 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_12">
        <item>
-        <widget class="Status" name="model" native="true">
+        <widget class="Model" name="model" native="true">
          <property name="minimumSize">
           <size>
            <width>1000</width>
@@ -1348,8 +1348,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1218</width>
-     <height>23</height>
+     <width>1623</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
@@ -1368,7 +1368,13 @@
   <customwidget>
    <class>Status</class>
    <extends>QWidget</extends>
-   <header location="global">status.h</header>
+   <header>status.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Model</class>
+   <extends>QWidget</extends>
+   <header location="global">model.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

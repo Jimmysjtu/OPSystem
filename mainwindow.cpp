@@ -16,8 +16,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->disconnect->setEnabled(false);
     serverIP =new QHostAddress();
     OnLine = false;
-
-
 }
 
 MainWindow::~MainWindow()
@@ -57,13 +55,6 @@ void MainWindow::initWindow()
     focus = nullptr;
     display = nullptr;
     btn = nullptr;
-
-    ui->model->setmodel();
-
-
-
-
-
 
     timer_m = new QTimer(this);
     timer_m->setInterval(100);

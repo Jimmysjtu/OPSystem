@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\status.o
+./release\model.o
+./release\glm.o
+./release\camera.o
+./release\robot.o
+./release\scene.o
+./release\qrc_resource.o
+./release\moc_mainwindow.o
+./release\moc_status.o
+);
