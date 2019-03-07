@@ -7,10 +7,14 @@
 #include <QToolButton>
 #include <QHostAddress>
 #include <QTcpSocket>
+#include <QCamera>
+#include <QCameraViewfinder>
 
 namespace Ui {
 class MainWindow;
 }
+
+
 
 class MainWindow : public QMainWindow
 {
@@ -50,6 +54,10 @@ public:
     QTcpSocket *tcpSocket;
 
     bool OnLine;
+
+
+
+
 
 
 private slots:
@@ -112,8 +120,14 @@ private slots:
 
     void on_connect_clicked();
 
+    void on_closeC_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    QCamera *camera;
+
+    QCameraViewfinder *viewfinder;
 };
 
 #endif // MAINWINDOW_H

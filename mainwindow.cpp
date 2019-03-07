@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QMessageBox>
+#include <app.h>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -17,21 +18,37 @@ MainWindow::MainWindow(QWidget *parent) :
     serverIP =new QHostAddress();
     OnLine = false;
 
+    this->setWindowFlags(Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint);
+
+    camera = new QCamera();
+
+    viewfinder=new QCameraViewfinder(this);
+
+    ui->imageview->addWidget(viewfinder);
+
+    camera->setViewfinder(viewfinder);
+
+    camera->start();
+
+
+
 
 }
 
 MainWindow::~MainWindow()
 {
+
     delete ui;
+
 }
 void MainWindow::initWindow()
 {
-    this->resize(QSize(1500,1000));
+    this->resize(QSize(1300,1000));
     //夹持状态初始化
-    ui->ocstatus1->setOpen();
-    ui->ocstatus2->setOpen();
-    ui->ocstatus3->setOpen();
-    ui->ocstatus4->setOpen();
+    ui->status1->setOpen();
+    ui->status2->setOpen();
+    ui->status3->setOpen();
+    ui->status4->setOpen();
 
     //网络连接初始化
     ui->connection->setOnline(false);
@@ -58,7 +75,7 @@ void MainWindow::initWindow()
     display = nullptr;
     btn = nullptr;
 
-    ui->model->setmodel();
+    //ui->model->setmodel();
 
 
 
@@ -79,7 +96,7 @@ void MainWindow::initWindow()
 
 void MainWindow::on_plusbtn_m1_pressed()
 {
-    ui->status1->setMoveforward();
+    //ui->status1->setMoveforward();
     focus = &move1;
     display = ui->move1;
     step = 1;
@@ -89,7 +106,7 @@ void MainWindow::on_plusbtn_m1_pressed()
 
 void MainWindow::on_plusbtn_m1_released()
 {
-    ui->status1->setWait();
+    //ui->status1->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -98,7 +115,7 @@ void MainWindow::on_plusbtn_m1_released()
 
 void MainWindow::on_minusbtn_m1_pressed()
 {
-    ui->status1->setMovebackward();
+    //ui->status1->setMovebackward();
     focus = &move1;
     display = ui->move1;
     step = -1;
@@ -107,7 +124,7 @@ void MainWindow::on_minusbtn_m1_pressed()
 
 void MainWindow::on_minusbtn_m1_released()
 {
-    ui->status1->setWait();
+    //ui->status1->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -116,7 +133,7 @@ void MainWindow::on_minusbtn_m1_released()
 
 void MainWindow::on_plusbtn_r1_pressed()
 {
-    ui->status1->setRotateClockwise();
+    //ui->status1->setRotateClockwise();
     focus = &rotate1;
     display = ui->rotate1;
     step = 1;
@@ -125,7 +142,7 @@ void MainWindow::on_plusbtn_r1_pressed()
 
 void MainWindow::on_plusbtn_r1_released()
 {
-    ui->status1->setWait();
+    //ui->status1->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -134,7 +151,7 @@ void MainWindow::on_plusbtn_r1_released()
 
 void MainWindow::on_minusbtn_r1_pressed()
 {
-    ui->status1->setRotateAnticlockwise();
+    //ui->status1->setRotateAnticlockwise();
     focus = &rotate1;
     display = ui->rotate1;
     step = -1;
@@ -143,7 +160,7 @@ void MainWindow::on_minusbtn_r1_pressed()
 
 void MainWindow::on_minusbtn_r1_released()
 {
-    ui->status1->setWait();
+    //ui->status1->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -152,15 +169,15 @@ void MainWindow::on_minusbtn_r1_released()
 
 void MainWindow::on_occb1_stateChanged(int arg1)
 {
-    if(arg1==0) ui->ocstatus1->setOpen();
-    else ui->ocstatus1->setClose();
+    if(arg1==0) ui->status1->setOpen();
+    else ui->status1->setClose();
 }
 
 
 //2号手运动控制
 void MainWindow::on_plusbtn_m2_pressed()
 {
-    ui->status2->setMoveforward();
+    //ui->status2->setMoveforward();
     focus = &move2;
     display = ui->move2;
     step = 1;
@@ -168,7 +185,7 @@ void MainWindow::on_plusbtn_m2_pressed()
 }
 void MainWindow::on_plusbtn_m2_released()
 {
-    ui->status2->setWait();
+    //ui->status2->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -177,7 +194,7 @@ void MainWindow::on_plusbtn_m2_released()
 
 void MainWindow::on_minusbtn_m2_pressed()
 {
-    ui->status2->setMovebackward();
+    //ui->status2->setMovebackward();
     focus = &move2;
     display = ui->move2;
     step = -1;
@@ -186,7 +203,7 @@ void MainWindow::on_minusbtn_m2_pressed()
 
 void MainWindow::on_minusbtn_m2_released()
 {
-    ui->status2->setWait();
+    //ui->status2->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -195,7 +212,7 @@ void MainWindow::on_minusbtn_m2_released()
 
 void MainWindow::on_plusbtn_r2_pressed()
 {
-    ui->status2->setRotateClockwise();
+    //ui->status2->setRotateClockwise();
     focus = &rotate2;
     display = ui->rotate2;
     step = 1;
@@ -204,7 +221,7 @@ void MainWindow::on_plusbtn_r2_pressed()
 
 void MainWindow::on_plusbtn_r2_released()
 {
-    ui->status2->setWait();
+    //ui->status2->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -213,7 +230,7 @@ void MainWindow::on_plusbtn_r2_released()
 
 void MainWindow::on_minusbtn_r2_pressed()
 {
-    ui->status2->setRotateAnticlockwise();
+    //ui->status2->setRotateAnticlockwise();
     focus = &rotate2;
     display = ui->rotate2;
     step = -1;
@@ -222,7 +239,7 @@ void MainWindow::on_minusbtn_r2_pressed()
 
 void MainWindow::on_minusbtn_r2_released()
 {
-    ui->status2->setWait();
+    //ui->status2->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -231,14 +248,14 @@ void MainWindow::on_minusbtn_r2_released()
 
 void MainWindow::on_occb2_stateChanged(int arg1)
 {
-    if(arg1==0) ui->ocstatus2->setOpen();
-    else ui->ocstatus2->setClose();
+    if(arg1==0) ui->status2->setOpen();
+    else ui->status2->setClose();
 }
 
 //3号手运动控制
 void MainWindow::on_plusbtn_m3_pressed()
 {
-    ui->status3->setMoveforward();
+    //ui->status3->setMoveforward();
     focus = &move3;
     display = ui->move3;
     step = 1;
@@ -246,7 +263,7 @@ void MainWindow::on_plusbtn_m3_pressed()
 }
 void MainWindow::on_plusbtn_m3_released()
 {
-    ui->status3->setWait();
+    //ui->status3->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -255,7 +272,7 @@ void MainWindow::on_plusbtn_m3_released()
 
 void MainWindow::on_minusbtn_m3_pressed()
 {
-    ui->status3->setMovebackward();
+    //ui->status3->setMovebackward();
     focus = &move3;
     display = ui->move3;
     step = -1;
@@ -264,7 +281,7 @@ void MainWindow::on_minusbtn_m3_pressed()
 
 void MainWindow::on_minusbtn_m3_released()
 {
-    ui->status3->setWait();
+    //ui->status3->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -273,7 +290,7 @@ void MainWindow::on_minusbtn_m3_released()
 
 void MainWindow::on_plusbtn_r3_pressed()
 {
-    ui->status3->setRotateClockwise();
+    //ui->status3->setRotateClockwise();
     focus = &rotate3;
     display = ui->rotate3;
     step = 1;
@@ -282,7 +299,7 @@ void MainWindow::on_plusbtn_r3_pressed()
 
 void MainWindow::on_plusbtn_r3_released()
 {
-    ui->status3->setWait();
+    //ui->status3->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -291,7 +308,7 @@ void MainWindow::on_plusbtn_r3_released()
 
 void MainWindow::on_minusbtn_r3_pressed()
 {
-    ui->status3->setRotateAnticlockwise();
+    //ui->status3->setRotateAnticlockwise();
     focus = &rotate3;
     display = ui->rotate3;
     step = -1;
@@ -300,7 +317,7 @@ void MainWindow::on_minusbtn_r3_pressed()
 
 void MainWindow::on_minusbtn_r3_released()
 {
-    ui->status3->setWait();
+    //ui->status3->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -309,14 +326,14 @@ void MainWindow::on_minusbtn_r3_released()
 
 void MainWindow::on_occb3_stateChanged(int arg1)
 {
-    if(arg1==0) ui->ocstatus3->setOpen();
-    else ui->ocstatus3->setClose();
+    if(arg1==0) ui->status3->setOpen();
+    else ui->status3->setClose();
 }
 
 //4号手运动控制
 void MainWindow::on_plusbtn_m4_pressed()
 {
-    ui->status4->setMoveforward();
+    //ui->status4->setMoveforward();
     focus = &move4;
     display = ui->move4;
     step = 1;
@@ -324,7 +341,7 @@ void MainWindow::on_plusbtn_m4_pressed()
 }
 void MainWindow::on_plusbtn_m4_released()
 {
-    ui->status4->setWait();
+    //ui->status4->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -333,7 +350,7 @@ void MainWindow::on_plusbtn_m4_released()
 
 void MainWindow::on_minusbtn_m4_pressed()
 {
-    ui->status4->setMovebackward();
+    //ui->status4->setMovebackward();
     focus = &move4;
     display = ui->move4;
     step = -1;
@@ -342,7 +359,7 @@ void MainWindow::on_minusbtn_m4_pressed()
 
 void MainWindow::on_minusbtn_m4_released()
 {
-    ui->status4->setWait();
+    //ui->status4->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -351,7 +368,7 @@ void MainWindow::on_minusbtn_m4_released()
 
 void MainWindow::on_plusbtn_r4_pressed()
 {
-    ui->status4->setRotateClockwise();
+    //ui->status4->setRotateClockwise();
     focus = &rotate4;
     display = ui->rotate4;
     step = 1;
@@ -360,7 +377,7 @@ void MainWindow::on_plusbtn_r4_pressed()
 
 void MainWindow::on_plusbtn_r4_released()
 {
-    ui->status4->setWait();
+    //ui->status4->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -369,7 +386,7 @@ void MainWindow::on_plusbtn_r4_released()
 
 void MainWindow::on_minusbtn_r4_pressed()
 {
-    ui->status4->setRotateAnticlockwise();
+    //ui->status4->setRotateAnticlockwise();
     focus = &rotate4;
     display = ui->rotate4;
     step = -1;
@@ -378,7 +395,7 @@ void MainWindow::on_minusbtn_r4_pressed()
 
 void MainWindow::on_minusbtn_r4_released()
 {
-    ui->status4->setWait();
+    //ui->status4->setWait();
     focus = nullptr;
     display = nullptr;
     step = 0;
@@ -387,8 +404,8 @@ void MainWindow::on_minusbtn_r4_released()
 
 void MainWindow::on_occb4_stateChanged(int arg1)
 {
-    if(arg1==0) ui->ocstatus4->setOpen();
-    else ui->ocstatus4->setClose();
+    if(arg1==0) ui->status4->setOpen();
+    else ui->status4->setClose();
 }
 
 //加载结果
@@ -558,5 +575,17 @@ void MainWindow::dataReceived()
 
         ui->display->setText(msg.left(datagram.size()));
     }
+
+}
+
+void MainWindow::on_closeC_clicked()
+{
+    if(QMessageBox::question(this,"警告！","确定要退出手术状态？",QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Cancel)==QMessageBox::Ok)
+    {
+        close();
+        camera->stop();
+
+    };
+    return;
 
 }

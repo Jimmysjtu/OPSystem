@@ -28,16 +28,18 @@ int main(int argc, char *argv[])
 
 
 
-    //MainWindow w;
+
     Logindlg dlg;
-    MainMenu m;
+
 
     if(dlg.exec()==QDialog::Accepted)
     {
-        m.show();
+        MainMenu *m = new MainMenu;
+        m->show();
         return a.exec();
 
     }
 
    else  return 0;
+
 }

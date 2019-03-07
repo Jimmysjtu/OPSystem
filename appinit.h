@@ -2,7 +2,6 @@
 #define APPINIT_H
 
 #include <QObject>
-#include <QSqlDatabase>
 
 class APPINIT : public QObject
 {
@@ -10,7 +9,6 @@ class APPINIT : public QObject
 public:
     explicit APPINIT(QObject *parent = nullptr);
     void Load();
-    QSqlDatabase db;
 
 signals:
 

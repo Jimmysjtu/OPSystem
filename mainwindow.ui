@@ -1234,39 +1234,9 @@
         </spacer>
        </item>
        <item row="2" column="5">
-        <widget class="QLabel" name="label_9">
-         <property name="text">
-          <string>旋转调节</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QDial" name="dial"/>
-       </item>
-       <item row="1" column="5">
         <widget class="QSlider" name="horizontalSlider">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="4" rowspan="2">
-        <widget class="QSlider" name="verticalSlider">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
          </property>
         </widget>
        </item>
@@ -1283,14 +1253,37 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="0">
+       <item row="0" column="4" rowspan="3">
+        <widget class="QSlider" name="verticalSlider">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QDial" name="dial"/>
+       </item>
+       <item row="0" column="3">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="0">
         <widget class="QPushButton" name="pushButton_4">
          <property name="text">
           <string>初始位置</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
+       <item row="2" column="2">
         <widget class="QLabel" name="label_8">
          <property name="text">
           <string>距离调节</string>
@@ -1313,6 +1306,20 @@
          </property>
         </spacer>
        </item>
+       <item row="3" column="5">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>旋转调节</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6" rowspan="2">
+        <widget class="QPushButton" name="closeC">
+         <property name="text">
+          <string>退出界面</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
@@ -1320,8 +1327,8 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="minimumSize">
        <size>
-        <width>1100</width>
-        <height>500</height>
+        <width>900</width>
+        <height>400</height>
        </size>
       </property>
       <property name="title">
@@ -1329,14 +1336,7 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_12">
        <item>
-        <widget class="Status" name="model" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>1000</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="imageview"/>
        </item>
       </layout>
      </widget>

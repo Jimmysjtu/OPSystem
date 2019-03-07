@@ -2,6 +2,7 @@
 #define APP_H
 
 #include <QObject>
+#include <QCamera>
 
 class APP : public QObject
 {
@@ -16,6 +17,7 @@ public:
     static QString CurrentUserName; //当前用户名
     static QString CurrentUserPwd;  //当前用户密码
     static QString CurrentUserType; //当前用户类型（值班员、管理员）
+
 
 
 signals:

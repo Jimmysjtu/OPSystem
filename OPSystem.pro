@@ -7,6 +7,8 @@
 QT       += core gui
 QT       += network
 QT       += sql
+QT       += multimedia
+QT       += multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,7 +34,8 @@ SOURCES += \
     logindlg.cpp \
     app.cpp \
     appinit.cpp \
-    mainmenu.cpp
+    mainmenu.cpp \
+    frmuser.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,12 +43,15 @@ HEADERS += \
     logindlg.h \
     app.h \
     appinit.h \
-    mainmenu.h
+    mainmenu.h \
+    frmuser.h
 
 FORMS += \
         mainwindow.ui \
     logindlg.ui \
-    mainmenu.ui
+    mainmenu.ui \
+    frmuser.ui \
+    frmuserpwd.ui
 
 RESOURCES += \
     resource.qrc

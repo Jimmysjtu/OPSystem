@@ -14,17 +14,15 @@ Logindlg::Logindlg(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle("用户登录");
+
+    setWindowIcon(QIcon(":/image/button/image/favicon.ico"));
+
     ui->pwdle->setEchoMode(QLineEdit::Password);
 
-        QString name = "123";
-        QString passwd = "123";
-        QSqlQuery query;
-        query.exec(QString(
-              "create table user (id int primary key, name varchar, password varchar)"));
-        query.exec(QString("insert into user values (1,'jim', '123')"));
 
         model = new QSqlTableModel(this);
-        model->setTable("user");
+        model->setTable("UserInfo");
         model->setEditStrategy(QSqlTableModel::OnManualSubmit);
         model->select();
 
@@ -46,7 +44,7 @@ void Logindlg::on_okbtn_clicked()
 
 
 
-        model->setFilter(tr("name = '%1' and password = '%2'").arg(name).arg(passwd));
+        model->setFilter(tr("UserName = '%1' and UserPwd = '%2'").arg(name).arg(passwd));
         model->select();
 
         if(model->rowCount() == 1){

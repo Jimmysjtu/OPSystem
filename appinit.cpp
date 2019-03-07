@@ -17,11 +17,17 @@ APPINIT::APPINIT(QObject *parent) : QObject(parent)
 void APPINIT::Load()
 {
     APP::AppPath = QApplication::applicationDirPath();
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("passwd.db");
-    if(!db.open()){
-            //QMessageBox::information(this, "连接结果", "连接数据库失败!");
-            return;
+
+
+    QSqlDatabase DbConn;
+    DbConn = QSqlDatabase::addDatabase("QSQLITE");
+    DbConn.setDatabaseName(APP::AppPath + "/passwd.db");
+    if (!DbConn.open()) {
+        exit(0);
     }
+
+    QSqlQuery query;
+    query.exec(QString("create table UserInfo (UserID int primary key, UserName varchar, UserPwd varchar, UserRole varchar)"));
+    query.exec(QString("insert into UserInfo values (0,'jim', '123', 'super')"));
 
 }

@@ -32,5 +32,6 @@
         <file>image/1174942.png</file>
         <file>image/1174974.png</file>
         <file>image/bg.jpg</file>
+        <file>image/connect.png</file>
     </qresource>
 </RCC>
