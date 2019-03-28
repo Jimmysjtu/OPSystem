@@ -35,7 +35,9 @@ SOURCES += \
     app.cpp \
     appinit.cpp \
     mainmenu.cpp \
-    frmuser.cpp
+    frmuser.cpp \
+    parameterdlg.cpp \
+    psetsendthread.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,14 +46,17 @@ HEADERS += \
     app.h \
     appinit.h \
     mainmenu.h \
-    frmuser.h
+    frmuser.h \
+    parameterdlg.h \
+    psetsendthread.h
 
 FORMS += \
         mainwindow.ui \
     logindlg.ui \
     mainmenu.ui \
     frmuser.ui \
-    frmuserpwd.ui
+    frmuserpwd.ui \
+    parameterdlg.ui
 
 RESOURCES += \
     resource.qrc

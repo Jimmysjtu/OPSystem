@@ -23,8 +23,12 @@ MainWindow::MainWindow(QWidget *parent) :
     camera = new QCamera();
 
     viewfinder=new QCameraViewfinder(this);
+    viewfinder->resize(100,100);
 
-    ui->imageview->addWidget(viewfinder);
+    ui->imageview1->addWidget(viewfinder);
+    //ui->imageview2->addWidget(viewfinder);
+    //ui->imageview3->addWidget(viewfinder);
+    //ui->imageview4->addWidget(viewfinder);
 
     camera->setViewfinder(viewfinder);
 
@@ -43,7 +47,7 @@ MainWindow::~MainWindow()
 }
 void MainWindow::initWindow()
 {
-    this->resize(QSize(1300,1000));
+    //this->resize(QSize(1300,1000));
     //夹持状态初始化
     ui->status1->setOpen();
     ui->status2->setOpen();

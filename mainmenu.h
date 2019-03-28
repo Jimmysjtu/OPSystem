@@ -22,7 +22,6 @@ private slots:
 
     void on_tb3_clicked();
 
-
     void on_tb4_clicked();
 
     void on_toolButton_clicked();

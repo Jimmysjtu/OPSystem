@@ -12,12 +12,13 @@ APPINIT::APPINIT(QObject *parent) : QObject(parent)
 
 
 
+
+
 }
 
 void APPINIT::Load()
 {
     APP::AppPath = QApplication::applicationDirPath();
-
 
     QSqlDatabase DbConn;
     DbConn = QSqlDatabase::addDatabase("QSQLITE");

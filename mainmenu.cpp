@@ -4,6 +4,7 @@
 #include "frmUser.h"
 #include "app.h"
 #include "logindlg.h"
+#include "parameterdlg.h"
 MainMenu::MainMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MainMenu)
@@ -42,12 +43,14 @@ MainMenu::~MainMenu()
 void MainMenu::on_tb1_clicked()
 {
     MainWindow *m = new MainWindow;
-    m->show();
+    m->showMaximized();
 
 }
 
 void MainMenu::on_tb2_clicked()
 {
+    ParameterDlg *p = new ParameterDlg;
+    p->show();
 
 }
 

@@ -18,6 +18,14 @@ public:
     static QString CurrentUserPwd;  //当前用户密码
     static QString CurrentUserType; //当前用户类型（值班员、管理员）
 
+    static void ReadConfig();       //读取配置文件,在main函数最开始加载程序载入
+    static void WriteConfig();      //写入配置文件,在更改配置文件程序关闭时调用
+
+    static QString l1;
+    static QString l2 ;
+    static QString l3;
+    static QString l4;
+
 
 
 signals:
